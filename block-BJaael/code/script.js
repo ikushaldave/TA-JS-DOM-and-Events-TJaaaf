@@ -12,7 +12,7 @@ const boxList = document.querySelectorAll(".box");
 function handler() {
 	boxList.forEach((e) => {
 		e.textContent = `${Math.round(Math.random() * 500)}`;
-		e.style.backgroundColor = `#${Math.round(Math.random() * 255)}`;
+		e.style.backgroundColor = `#${Math.round(Math.random() * 1000)}`;
 	});
 }
 
