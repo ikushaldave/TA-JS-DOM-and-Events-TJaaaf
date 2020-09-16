@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Globals */
+
+:root {
+	font: 400 16px/1.5 "Roboto", sans-serif;
+}
+
+body {
+	background-color: #f5f5f5;
+}
+
+.container {
+	max-width: 1250px;
+	margin: 0;
+	padding: 1.5rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* Typography */
+
+h1 {
+	padding: 0.8rem;
+	font-size: 1.8rem;
+	font-weight: 500;
+	background-color: #1e90ff;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.result,
+.redo {
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-align: center;
+	padding: 1rem;
+}
+
+h4 {
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
+/* Main */
+
+.card {
+	max-width: 500px;
+	margin: 2rem auto;
+	background-color: #fff;
+}
+
+.user,
+.computer {
+	padding: 0 1rem;
+}
+
+.user-picked,
+.computer-picked {
+	height: 100px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.user i {
+	font-size: 3rem;
+	font-weight: 500;
+	color: #1e90ff;
+}
+
+.computer i {
+	font-weight: 500;
+	font-size: 3rem;
+	color: #eb2b34;
+}
+
+.user-selected {
+	color: #1e90ff;
+}
+
+.computer-selected {
+	color: #eb2b34;
+}
