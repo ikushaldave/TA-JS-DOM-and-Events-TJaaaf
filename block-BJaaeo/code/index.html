@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flip Box</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1 class="heading">🤯 Flip Box 🤩</h1>
-    <p>Handeling multiple event with or without event deligation!</p>
-    <div class="container">
-      <div class="wrapper">
-        <h2>Without Event Deligation</h2>
-        <ul class="boxes">
-          <li class="box">1</li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-        </ul>
-      </div>
-      <div class="wrapper">
-        <h2>With Event Deligation</h2>
-        <ul class="boxes">
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-          <li class="box"></li>
-        </ul>
-      </div>
-    </div>
-    <script src="./script.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Flip Box</title>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="calculator">
+				<div class="output"></div>
+				<div class="buttons">
+					<i class="fal fa-plus operation" data-operation="+"></i>
+					<i class="fal fa-minus operation" data-operation="-"></i>
+					<i class="far fa-times operation" data-operation="*"></i>
+					<i class="far fa-divide operation" data-operation="/"></i>
+					<div class="btn" data-number="7">7</div>
+					<div class="btn" data-number="8">8</div>
+					<div class="btn" data-number="9">9</div>
+					<div class="eval">=</div>
+					<div class="btn" data-number="4">4</div>
+					<div class="btn" data-number="5">5</div>
+					<div class="btn" data-number="6">6</div>
+					<div class="btn" data-number="1">1</div>
+					<div class="btn" data-number="2">2</div>
+					<div class="btn" data-number="3">3</div>
+					<div class="btn" data-number=".">.</div>
+					<div class="btn" data-number="0">0</div>
+					<div class="clear btn">C</div>
+				</div>
+			</div>
+		</div>
+		<script src="./script.js"></script>
+	</body>
 </html>

@@ -1,15 +1,15 @@
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
+html,
 body,
+div,
+span,
+applet,
+object,
+iframe,
 h1,
 h2,
 h3,
@@ -17,103 +17,208 @@ h4,
 h5,
 h6,
 p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
 ol,
-ul {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
-ol,
-ul {
-  list-style: none;
-}
+/* HTML5 display-role reset for older browsers */
 
-img {
-  max-width: 100%;
-  height: auto;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
 }
 
 body {
-  background: #f2f4f8;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* global */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #223944;
+	font-family: "Montserrat", sans-serif;
 }
 
 .container {
-  text-align: center;
-  max-width: 1280px;
-  padding: 2rem;
-  margin: 0 auto;
-  display: flex;
+	max-width: 1250px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
-.banner {
-  display: inline-block;
-  color: #424242;
-  font-size: 20px;
-  text-decoration: none;
-  text-align: center;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background: white;
-  border-radius: 4px;
-  min-width: 24px;
-  font-size: 20px;
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
-  border: 2px solid;
-}
-.wrapper {
-  max-width: 50%;
-  margin: 0 auto;
+.calculator {
+	width: 380px;
 }
 
-.boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: chocolate;
-  color: #444;
-  padding: 20px 0;
+.buttons {
+	background-color: #fffffd;
+	border-radius: 0 0 5px 5px;
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+	gap: 0.8rem;
+	text-align: center;
+	padding: 0.8rem;
 }
 
-.wrapper:first-child {
-  margin-right: 20px;
+.output {
+	background-color: #000000;
+	color: #fff;
+	line-height: 1.8;
+	font-size: 2rem;
+	font-weight: 400;
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+	height: 80px;
+	padding: 0.8rem;
+	overflow: hidden;
+	text-align: right;
 }
 
-.box {
-  margin: 5px;
-  background-color: #444;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 160px;
-  width: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-.text {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.eval {
+	grid-column: 4 / 5;
+	grid-row: 2 / 6;
+	display: flex;
+	align-items: center;
 }
 
-.first {
-  margin-right: 20px;
+.btn,
+.eval,
+.operation {
+	padding: 1rem 2rem;
+	border-radius: 6px;
+	font-size: 1.25rem;
+	font-weight: 400;
+	cursor: pointer;
 }
 
-h2 {
-  font-weight: bolder;
-  padding-bottom: 10px;
+.btn {
+	background-color: #c8c8c8;
 }
 
-.heading {
-  text-align: center;
-  margin-top: 2rem;
+.operation {
+	background-color: #808080;
+	color: #fff;
+}
+
+.clear {
+	background-color: #fe2a28;
+}
+
+.eval {
+	background-color: #0ace56;
+	font-weight: 500;
+	color: #fff;
+	font-size: 2rem;
+	align-items: center;
 }
