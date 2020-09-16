@@ -7,6 +7,8 @@
 	const userPickingList = document.querySelector(".user-picked");
 	const computerPickingList = [...document.querySelector(".computer-picked").children];
 	const redo = document.querySelector(".redo");
+	let prevSelectedByUser = null;
+	let prevSelectedByComputer = null;
 
 	function gameLogic(u, c) {
 		if (u === c) {
@@ -24,10 +26,24 @@
 		const userPicked = e.target.dataset.picked;
 		if (!userPicked) return;
 		result.innerText = ``;
-		const computerPicked = computerPickingList[Math.floor(Math.random() * computerPickingList.length)].dataset.picked;
+
+		if (prevSelectedByUser) {
+			prevSelectedByUser.classList.toggle("active");
+			prevSelectedByComputer.classList.toggle("active");
+		}
+
+		const computerRandom = computerPickingList[Math.floor(Math.random() * computerPickingList.length)];
+		const computerPicked = computerRandom.dataset.picked;
+
+		e.target.classList.add("active");
+		computerRandom.classList.add("active");
+		console.log(computerRandom);
 
 		userSelect.innerText = `--- ${userPicked}`;
 		computerSelect.innerText = `--- ${computerPicked}`;
+
+		prevSelectedByComputer = computerRandom;
+		prevSelectedByUser = e.target;
 
 		gameLogic(userPicked, computerPicked);
 	}
@@ -38,6 +54,10 @@
 		result.innerText = "";
 		userSelect.innerText = "";
 		computerSelect.innerText = "";
+		prevSelectedByUser.classList.remove("active");
+		prevSelectedByComputer.classList.remove("active");
+		prevSelectedByUser = null;
+		prevSelectedByComputer = null;
 	});
 
 	userPickingList.addEventListener("click", handler);
