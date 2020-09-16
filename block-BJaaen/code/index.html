@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper and Scissor game</title>
-  </head>
-  <body>
-    <script src="./script.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rock Paper and Scissor game</title>
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.14.0/css/all.css" />
+	</head>
+	<body>
+		<main class="container">
+			<div class="card">
+				<h1>Rock Paper Scissors Lizard Spock</h1>
+				<div class="user">
+					<h4>You - <span class="userScore">0</span> <span class="user-selected"></span></h4>
+					<div class="user-picked">
+						<i class="fal fa-hand-rock" data-picked="rock"></i>
+						<i class="fal fa-hand-paper" data-picked="paper"></i>
+						<i class="fal fa-hand-scissors" data-picked="scissors"></i>
+						<i class="fal fa-hand-lizard" data-picked="lizard"></i>
+						<i class="fal fa-hand-spock" data-picked="spock"></i>
+					</div>
+				</div>
+				<div class="computer">
+					<h4>Computer - <span class="computerScore">0</span> <span class="computer-selected"></span></h4>
+					<div class="computer-picked">
+						<i class="fal fa-hand-rock" data-picked="rock"></i>
+						<i class="fal fa-hand-paper" data-picked="paper"></i>
+						<i class="fal fa-hand-scissors" data-picked="scissors"></i>
+						<i class="fal fa-hand-lizard" data-picked="lizard"></i>
+						<i class="fal fa-hand-spock" data-picked="spock"></i>
+					</div>
+				</div>
+				<i class="fas fa-redo redo"></i>
+				<span class="result"></span>
+			</div>
+		</main>
+
+		<script src="./script.js"></script>
+	</body>
 </html>
