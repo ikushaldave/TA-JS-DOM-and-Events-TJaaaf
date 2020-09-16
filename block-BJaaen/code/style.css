@@ -222,3 +222,7 @@ h4 {
 .computer-selected {
 	color: #eb2b34;
 }
+
+.active.active.active {
+	color: #000;
+}
