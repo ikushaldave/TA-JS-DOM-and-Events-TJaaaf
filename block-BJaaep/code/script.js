@@ -6,7 +6,7 @@ function withoutDelegationHandler(e, i) {
 	e.style.transform = `rotateY(360deg)`;
 	e.innerText = `${i + 1}`;
 	setTimeout(() => {
-		e.style.transform = `rotateY(0deg)`;
+		e.style.transform = `rotateY(180deg)`;
 		e.innerText = "";
 	}, 5000);
 }
@@ -25,7 +25,7 @@ function withEventDelegationHandler(e) {
 	e.target.style.transform = `rotateY(360deg)`;
 	e.target.innerText = `${i + 1}`;
 	setTimeout(() => {
-		e.target.style.transform = `rotateY(0deg)`;
+		e.target.style.transform = `rotateY(180deg)`;
 		e.target.innerText = "";
 	}, 5000);
 }
