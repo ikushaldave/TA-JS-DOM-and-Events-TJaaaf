@@ -1,58 +1,159 @@
-// 1. Change the title of the page to `Hello AltCampus!`
+(function () {
+	const container = document.querySelector(".container");
+	const wrapper = document.querySelector(".wrapper");
+	const modal = document.querySelector(".modal");
+	const move = document.querySelector(".move");
+	const timer = document.querySelector(".timer");
+	const restart = document.querySelector(".fa-redo");
 
-// 2. Select the element using the children property:
+	let cards = ["fa-tired", "fa-surprise", "fa-smile-wink", "fa-smile-beam", "fa-sad-tear", "fa-sad-cry", "fa-kiss-wink-heart", "fa-grin-tongue-wink", "fa-tired", "fa-surprise", "fa-smile-wink", "fa-smile-beam", "fa-sad-tear", "fa-sad-cry", "fa-kiss-wink-heart", "fa-grin-tongue-wink"];
+	let evenSelected = null;
+	let oddSelected = null;
+	let clicked = 1;
+	let gameOver = false;
+	let moves = 0;
+	let min = 0;
+	let sec = 0;
+	let interval = null;
 
-//    - Select the `h1` element and change the value to `Learning DOM`
+	function modalUI(m, minute, second) {
+		const div = document.createElement("div");
+		div.innerHTML = `
+		<div>${document.querySelector(".lifes").innerHTML}</div>
+		<h2>You Had Completed a Game at ${m} in ${minute}:${second} s</h2>
+		<a class="btn">Play Again</a>
+	`;
+		modal.classList.add("modal-overlay");
+		modal.append(div);
 
-//    - Select the first `li` element inside the `ul` with class `topics` and change the innerText to `all about document`
-//    - Select the input element with name `email`
+		document.querySelector(".btn").addEventListener("click", function () {
+			modal.innerHTML = "";
+			modal.classList.remove("modal-overlay");
+			restartHandler();
+		});
+	}
 
-// 3. Log the number (using console.log) of children of all the `li` element inside the ul with class `topics`
+	function createUI(data) {
+		wrapper.innerHTML = "";
+		data.forEach((e) => {
+			const div = document.createElement("div");
+			div.classList.add("box");
+			div.style.transform = `rotateY(180deg)`;
+			div.setAttribute("data-face", e);
+			div.addEventListener("click", boxHandler);
+			wrapper.append(div);
+		});
+	}
 
-// 4. Select the first input using the `type` selector and store them in variable named `emailInput`
+	function shuffle(cards) {
+		const shuffleCards = [];
+		const randomList = [];
+		let isContain = false;
+		randomList.push(Math.floor(Math.random() * 16));
 
-// 5. Select the ul element using class selector and store in `topics`
+		while (randomList.length !== cards.length) {
+			const random = Math.floor(Math.random() * 16);
+			randomList.forEach((i) => {
+				if (random === i) {
+					isContain = true;
+				}
+			});
+			if (!isContain) {
+				randomList.push(random);
+			}
+			isContain = false;
+		}
+		for (let i = 0; i < randomList.length; i++) {
+			shuffleCards.push(cards[randomList[i]]);
+		}
 
-// 6. Select the first label element and store in `label`
+		cards = shuffleCards;
+		return cards;
+	}
 
-// 7. Select the input of type `checkbox` with the `id` selector and store in `inputCheckbox`
+	function restartHandler() {
+		window.location.reload();
+	}
 
-// 8. Select the input of type password using Attribute selectors. (eg: input[type="text"]) and store in `password`
+	function gameLogic() {
+		//  Remove Event Listerner from other box
+		document.querySelectorAll(".box").forEach((e) => {
+			if (e !== oddSelected && e !== evenSelected) {
+				e.removeEventListener("click", boxHandler);
+			}
+		});
 
-// 9. Select the input using the placeholder attribute selector with value `password` and store in `attrPassword`
+		if (moves === 10) {
+			document.querySelector(".life:last-child").remove();
+		} else if (moves === 15) {
+			document.querySelector(".life:last-child").remove();
+		}
 
-// 10. Select all the `li` element and store in `allTopics`
+		// Game Logic
+		if (evenSelected.dataset.face === oddSelected.dataset.face) {
+			evenSelected.innerHTML = `<i class="fal ${evenSelected.dataset.face}"><i>`;
+			evenSelected.style.transform = `rotateY(360deg)`;
+			oddSelected.classList.add("success");
+			evenSelected.classList.add("success");
 
-// 11. Select all the input element of any type and store in `allInput`
+			// It add back an event Listener
+			document.querySelectorAll(".box").forEach((e) => {
+				e.addEventListener("click", boxHandler);
+			});
+		} else {
+			evenSelected.innerHTML = `<i class="fal ${evenSelected.dataset.face}"><i>`;
+			evenSelected.style.transform = `rotateY(360deg)`;
 
-// 12. Use forEach to console the `innerText` property of all the li element in `allTopics` variable.
+			setTimeout(() => {
+				evenSelected.style.transform = `rotateY(180deg)`;
+				evenSelected.innerHTML = "";
+				oddSelected.style.transform = `rotateY(180deg)`;
+				oddSelected.innerHTML = "";
+				document.querySelectorAll(".box").forEach((e) => {
+					e.addEventListener("click", boxHandler);
+				});
+			}, 1000);
+		}
 
-// 13. Select all the elements with class `list` and store in variable `listOfSelectedTopics`
+		gameOver = [...document.querySelectorAll(".box")].every((i) => i.classList.contains("success"));
+		if (gameOver) {
+			modalUI(moves, min, sec);
+		}
+	}
 
-// 14. Select the first li element inside the `ul` element using `>` (direct child) and store in `firstLi`
+	function boxHandler(e) {
+		if (e.target.style.transform === "rotateY(180deg)") {
+			e.target.innerHTML = `<i class="fal ${e.target.dataset.face}"></i>`;
+			e.target.style.transform = `rotateY(360deg)`;
+			if (clicked % 2 == 0) {
+				evenSelected = e.target;
+				gameLogic();
+				moves++;
+				move.textContent = moves;
+			} else {
+				oddSelected = e.target;
+			}
+			clicked++;
+			e.target.removeEventListener("click", boxHandler);
+		}
+	}
 
-// 15. Select all the img element and log the number of element saying `The total number of img element is ---`
+	function timeHandler(e) {
+		if (e.target.classList.contains("box")) {
+			interval = setInterval(() => {
+				sec++;
+				if (sec % 59 == 0) {
+					min++;
+					sec = 0;
+				}
+				timer.innerText = `${min}:${sec} s`;
+			}, 1000);
+		}
+		wrapper.removeEventListener("click", timeHandler);
+	}
 
-// 16. Select all the `p` element and store in `allPElement`
+	createUI(shuffle(cards));
 
-// 17. Select all the buttons and log the count of buttons.
-
-// 18. Select all the `label` element and log the count.
-
-// 19. Select all the elements with `id` of `test`
-
-// 20. Select the first element with id `test` using `getElementById`
-
-// 21. Select the parent element of the element stored in `topics` variable (#5) and log the element.
-
-// 22. Select the next element sibling of the element stored in `topics` variable (#5) and log the element.
-
-// 23. Select the previous element sibling of the element stored in `topics` variable (#5) and change the `innerText` property to `Learning About Walking the DOM`.
-
-// 24. Select the first element child of the element stored in `topics` variable (#5) and change the `innerText` property of the element to `This is the first child element`.
-
-// 25. Select the last element child of the element stored in `topics` variable (#5) and log the `typeof` the element.
-
-// 26. Select the element with type `fieldset` and store in a variable named `fieldsetElm`.
-
-// 27. Select the parent element of the element stored in `fieldsetElm` variable (#5) and log the `typeof` the element.
+	restart.addEventListener("click", restartHandler);
+	wrapper.addEventListener("click", timeHandler);
+})();
