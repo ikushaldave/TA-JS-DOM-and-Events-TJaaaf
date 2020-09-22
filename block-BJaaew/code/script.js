@@ -19,7 +19,6 @@ function main(houses) {
 
 	function filterCards(filterData) {
 		const data = houses.filter((e) => e.name == filterData);
-		console.log(data);
 		createUI(data);
 	}
 
@@ -60,10 +59,14 @@ function main(houses) {
 	}
 
 	function handler(e) {
+		[...e.currentTarget.children].forEach((i) => {
+			if (i.classList.contains("active")) i.classList.remove("active");
+		});
 		if (e.target.innerText == "All") {
+			e.target.classList.add("active");
 			createUI(houses);
 		} else if (e.target.tagName == "LI" && e.target.innerText !== "ALL") {
-			console.log(e.target.innerText);
+			e.target.classList.add("active");
 			filterCards(e.target.innerText);
 		}
 	}
@@ -79,7 +82,7 @@ function main(houses) {
 
 	createListItemUI();
 	createUI(houses);
-
+	ul.children[0].classList.add("active");
 	console.log(peopleNames());
 }
 
