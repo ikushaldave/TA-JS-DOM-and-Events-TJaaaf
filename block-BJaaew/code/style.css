@@ -77,3 +77,8 @@ input {
 input:focus {
 	border: 1px solid #093b2d;
 }
+
+.active {
+	color: aqua;
+	background-color: blueviolet;
+}
