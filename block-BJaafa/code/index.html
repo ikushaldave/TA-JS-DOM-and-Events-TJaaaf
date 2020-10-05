@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Typster</title>
+		<link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Caveat:wght@700&family=Courier+Prime&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" />
+		<link rel="stylesheet" href="./assets/stylesheets/main.css" />
+	</head>
+	<body>
+		<header class="header container">
+			<h1 class="site-logo">Typster</h1>
+			<button class="profile-button">
+				<i class="fa fa-user-o"></i>
+			</button>
+		</header>
+		<main class="main container">
+			<section class="levels">
+				<button class="level-btn beginner">Beginner</button>
+				<button class="level-btn intermediate">Intermediate</button>
+				<button class="level-btn expert">Expert</button>
+				<button class="level-btn random">Random</button>
+			</section>
+			<section class="typewriter">
+				<div class="stats">
+					<ul>
+						<li class="stat-item">
+							<div>
+								<div class="stat-name">Grade</div>
+								<div class="stat-value grade">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+							</div>
+						</li>
+						<li class="stat-item">
+							<div>
+								<div class="stat-name">Speed</div>
+								<div class="stat-value"><span class="speed"> 0 </span> <span> wpm</span></div>
+							</div>
+						</li>
+						<li class="stat-item">
+							<div>
+								<div class="stat-name">Time Left</div>
+								<div class="stat-value time"><span class="min">2</span>:<span class="sec">20</span>s</div>
+							</div>
+						</li>
+						<li class="stat-item">
+							<div>
+								<div class="stat-name">Word Left</div>
+								<div class="stat-value word-left">20</div>
+							</div>
+						</li>
+						<li class="stat-item">
+							<div>
+								<div class="stat-name">Error</div>
+								<div class="stat-value"><span class="stat error"></span> / <span class="total-error"></span></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<p class="writing-text"></p>
+			</section>
+			<section class="exercise-levels">
+				<button class="previous-button">
+					<i class="fa fa-chevron-left"></i>
+				</button>
+				<ul class="exercise-level-list"></ul>
+				<button class="next-button"><i class="fa fa-chevron-right"></i></button>
+			</section>
+		</main>
+		<script src="src/data.js"></script>
+		<script src="src/main.js"></script>
+	</body>
+	<link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Mono&display=swap" rel="stylesheet" />
+</html>
